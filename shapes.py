@@ -11,6 +11,12 @@ class Line:
     def draw(self):
         pygame.draw.line(self._win, self._color, self._start_pos, self._end_pos, self._size)
         
+    def get_x(self):
+        return self._start_pos[0]
+    
+    def get_y(self):
+        return self._start_pos[1]
+        
 
 class Rect:
     def __init__(self, color: tuple, coords: tuple, win, size: int = 0, border_radius: int = 0):
@@ -32,3 +38,14 @@ class Rect:
 
     def draw(self):
         pygame.draw.rect(self._win, self._color, self._coords, self._size, border_radius= self._border_radius)
+   
+class Circle:
+    def __init__(self, win, color: tuple, center: tuple, radius: int, width: int):
+        self._win = win
+        self._color = color
+        self._center = center
+        self._radius = radius
+        self._width = width
+
+    def draw(self):
+        pygame.draw.circle(self._win, self._color, self._center, self._radius, self._width)
